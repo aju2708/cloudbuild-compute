@@ -5,7 +5,7 @@ steps:
   args:
     - compute
     - instance-templates
-    - create-with-container
+    - create
     - cloud-build-instance-template
     - --custom-cpu=1
     - --custom-memory=2GB
@@ -16,15 +16,16 @@ steps:
     - --container-image
     - us-central1-docker.pkg.dev/devops-386105/python-repo/python-image:latest
 
- # # create the managed instance group
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['-c','gcloud compute instance-groups managed create cloudbuild-mig --template cloud-build-instance-template --size 1 --region us-central1']  
-  
-
+  args:
+    - '-c'
+    - |
+      gcloud compute instance-groups managed create cloudbuild-mig --template cloud-build-instance-template --size 1 --region us-central1
 
 options:
- logging: CLOUD_LOGGING_ONLY
+  logging: CLOUD_LOGGING_ONLY
+
 
 
 
