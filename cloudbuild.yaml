@@ -1,6 +1,6 @@
 # Create the new instance template
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/cloud-builders/docker'
   id: create-instance-template
   args:
     - compute
@@ -9,9 +9,9 @@ steps:
     - cloud-build-instance-template
     - --custom-cpu=1
     - --custom-memory=2GB
-    - --boot-disk-size=20GB
+    - --boot-disk-size=10GB
     - --region=us-central1
-    - --subnet=mig-subnet
+    - --subnet=default
     - --tags=allow-hc-and-proxy,allow-ssh
     - --container-image
     - us-central1-docker.pkg.dev/devops-386105/python-repo/python-image:latest
