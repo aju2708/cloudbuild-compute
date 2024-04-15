@@ -17,7 +17,7 @@ steps:
     - us-central1-docker.pkg.dev/devops-386105/python-repo/python-image:latest
 
  # # create the managed instance group
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c','gcloud compute instance-groups managed create cloudbuild-mig --template cloud-build-instance-template --size 1 --region us-central1']  
   
