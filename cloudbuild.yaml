@@ -3,7 +3,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/devops-386105/python-repo/python-image', '.' ]
-# push docker image
+# push docker image that i want to push
 images:
 - 'us-central1-docker.pkg.dev/devops-386105/python-repo/python-image'
 ## [END cloudbuild_quickstart_build]
